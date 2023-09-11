@@ -4,8 +4,9 @@ import 'package:flutter_application_2/viewmodels/username_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 import './viewmodels/login_viewmodel.dart';
-import 'screens/screen_imageupload.dart';
 import 'screens/screen_login.dart';
+import 'screens/screen_postlist.dart';
+import 'viewmodels/checkboxlist_viewmodel.dart';
 import 'viewmodels/imageupload_viewmodel.dart';
 
 void main() {
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => OtpModel()),
         ChangeNotifierProvider(create: (_) => UserViewModel()),
         ChangeNotifierProvider(create: (_) => FileUploadViewModel()),
+        ChangeNotifierProvider(create: (_) => PostViewModel()),
         Provider.value(
             value:
                 _navigationService), // Provide the NavigationService instance
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: _navigationService
             .navigatorKey, // Use the NavigationService's navigatorKey
         title: 'ChangeNotifier Example',
-        home: FileUpload(), // Display the splash screen first
+        home: PostListPage(), // Display the splash screen first
         routes: {
           '/home': (context) =>
               LoginFormScreen(), // Navigate to LoginFormScreen after the splash screen
